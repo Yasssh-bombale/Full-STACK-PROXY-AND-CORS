@@ -7,14 +7,18 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/jokes", (req, res) => {
-  return res.send([
+  const jokes = [
     { id: 1, title: "joke 1", content: "blah blah blah" },
     { id: 2, title: "joke 1", content: "blah blah blah" },
     { id: 3, title: "joke 1", content: "blah blah blah" },
     { id: 4, title: "joke 1", content: "blah blah blah" },
     { id: 5, title: "joke 1", content: "blah blah blah" },
     { id: 6, title: "joke 1", content: "blah blah blah" },
-  ]);
+  ];
+  return res.status(201).json({
+    success: true,
+    jokes,
+  });
 });
 
 app.listen(8000, (req, res) => {
